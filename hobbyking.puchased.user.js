@@ -151,7 +151,7 @@ function hobbyking_purchasedjs_parse_orderslist_page(html) {
           'order_no': order_no,
           'total_lbl': total_lbl,
           'total': total,
-          'status': tds[4].innerHTM
+          'status': tds[4].innerHTML
         }
       }
     }
