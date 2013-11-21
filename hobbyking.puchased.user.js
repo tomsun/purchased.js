@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name        hobbyking.purchased
-// @version     1.0.0
+// @version     1.0.1
 // @license     CC0 1.0 Universal; http://creativecommons.org/publicdomain/zero/1.0/
 // @description Analyzes your order history on HobbyKing.com - https://github.com/tomsun/purchased.js
 // @namespace   http://tomsun.ax
