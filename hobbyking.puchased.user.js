@@ -173,23 +173,28 @@ function hobbyking_purchasedjs_parse_orderslist_pagecount(html) {
       var result = tds[i].innerHTML.match(/Page: ([0-9]+) of ([0-9]+)/)
       var pagecount = 1;
       if (!result || result.length < 3 || result[2] < 1) {
-        pagecount = parseInt(prompt('Could not detect the number of pages! Please specify the number of pages'))
-        if (pagecount == NaN) {
-          alert('Could not interpret your input. Assuming only one page')
-          pagecount = 1
-        }
+        pagecount = undefined
       } else {
         pagecount = result[2]
-      }
-      if (pagecount > 10 && !confirm("Detected " + pagecount + " pages - are you sure you want to parse all of them?")) {
-        pagecount = 1
-      }
-      if (pagecount > 30) {
-        alert('Nope, not doing more than 30, sorry')
-        pagecount = 1
       }
       break
     }
   }
+
+  if (typeof pagecount === undefined) {
+    pagecount = parseInt(prompt('Could not detect the number of pages! Please specify the number of pages'))
+    if (pagecount == NaN) {
+      alert('Could not interpret your input. Assuming only one page')
+      pagecount = 1
+    }
+  }
+  if (pagecount > 10 && !confirm("Detected " + pagecount + " pages - are you sure you want to parse all of them?")) {
+    pagecount = 1
+  }
+  if (pagecount > 30) {
+    alert('Nope, not doing more than 30, sorry')
+    pagecount = 1
+  }
+
   return pagecount
 }
