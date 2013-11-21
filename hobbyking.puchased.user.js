@@ -65,7 +65,9 @@ function hobbyking_purchasedjs_calculate_sum() {
       if (typeof order.total !== undefined) {
         if (order.total == 0) warning_zerovalue++
         if (order.total < 0) warning_negativevalue++
-        sum_total += order.total
+        if (order.status != "cancelled") {
+          sum_total += order.total
+        }
       } else {
         warning_novalue++
       }
