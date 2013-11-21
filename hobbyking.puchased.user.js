@@ -188,6 +188,7 @@ function hobbyking_purchasedjs_parse_orderslist_pagecount(html) {
         alert('Nope, not doing more than 30, sorry')
         pagecount = 1
       }
+      break
     }
   }
   return pagecount
